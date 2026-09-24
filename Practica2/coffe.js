@@ -1,16 +1,11 @@
-// ------------------------------------------------- COCINA -----------------------------------------------------------------------
-// Gestion de cocina
 let inventario = [];
 
-/*  AGREGAR PRODUCTOS */
-// Le agregamos 'precio' aquí para que la caja y el cliente no marquen undefined
 function agregar(nombre, precio, stock, categoria ){
     const nuevoProducto = {nombre: nombre, precio: precio, stock: stock, categoria: categoria};
     inventario.push(nuevoProducto);
     console.log("Producto nuevo agregado :D");
 };
 
-/* LISTAR PRODUCTOS */
 function listar() {
     if(inventario.length == 0) {
         console.log("No hay nada, agrega algo");
@@ -37,7 +32,6 @@ function editar(Enombre, Estock, Ecategoria, Eprecio){
     console.log("Producto actualizado correctamente");
 }
 
-// Eliminar producto
 function eliminar(nombreEnc){
     const index = inventario.findIndex(item => item.nombre == nombreEnc);
 
@@ -50,9 +44,7 @@ function eliminar(nombreEnc){
     console.log(`Producto eliminado: ${eliminado[0].nombre}`);
 }
 
-
-// --------------------------------------------------- CAJA -----------------------------------------------------------------------------
-// La caja registradora
+/* Caja  */
 const listaPedidos = [];
 let totalAcumulado = 0;
 
@@ -84,11 +76,9 @@ function mostrarTotal() {
 }
 
 
-// ------------------------------------------------- CLIENTE -------------------------------------------------------------------------
-// Vista de cliente ya funcionando adaptado con caja y cocina :)
-
+/* Cliente */
 function mostraMenu(){
-    console.log("\n ---------------menu del dia-----------------");
+    console.log("\n menu del dia");
     inventario.forEach(function(producto) {
         console.log(`${producto.nombre} | $${producto.precio.toFixed(2)} | Stock: ${producto.stock}`);
     });
@@ -120,11 +110,9 @@ function crearPedido(nombreProducto, cantidad){
         return null;
     }  
 
-    // Descontamos del inventario
     producto.stock = producto.stock - cantidad;
     console.log(`pedido creado por el cliente: ${producto.nombre}`);
 
-    // aca se conecta a la caja
     agregarPedido(producto.nombre, producto.precio, cantidad);
     return {
         nombre: producto.nombre,
@@ -134,8 +122,6 @@ function crearPedido(nombreProducto, cantidad){
 }
 
 
-// ---------------------------- COFFE PARTE II -----------------------------------------
-// ---------------------------- COCINA II -----------------------------------------------
 function baratito(limitePrecio = 50) {
     const baratos = inventario.filter(p => p.precio < limitePrecio);
 
@@ -194,7 +180,6 @@ function buscarProductoUnico(nombreB) {
 }
 
 
-// ------------------------------------------------ CAJA II ---------------------------------------------------------------
 
 function calcularTotalConIva() {
   const subtotalGeneral = listaPedidos.reduce(function (acumulado, pedido) {
@@ -211,12 +196,10 @@ function calcularTotalConIva() {
 }
 
 
-// --------------------------------------------------- CLIENTE II --------------------------------------------------------------
-// vinculamos productos a inventarios para que tengan la misma info
 let productos = inventario;
 
 function mostrarMenu() {
-  console.log("\n---------------menu del dia-----------------");
+  console.log("\n menu del dia");
 
   productos.forEach(function (producto) {
     console.log(`${producto.nombre} | $${producto.precio.toFixed(2)}`);
@@ -229,7 +212,7 @@ function mostrarPromociones() {
     return `${producto.nombre} | antes $${producto.precio.toFixed(2)} | ahora $${precioConDescuento.toFixed(2)}`;
   });
 
-  console.log("\n---------------promociones-----------------");
+  console.log("\npromociones");
 
   promociones.forEach(function (promo) {
     console.log(promo);
@@ -237,7 +220,6 @@ function mostrarPromociones() {
 }
 
 
-// ejecucion
 
 console.log("=== 1. AGREGANDO PRODUCTOS DE CAFÉ ===");
 agregar("Cafe Americano", 35, 20, "Bebidas");
