@@ -51,3 +51,39 @@ agregarPedido("Papas", 35, 1);
 mostrarPedidos();
 mostrarTotal();
 calcularTotalConIva();
+
+function marcarPedidoListo(index, avisar) {
+  let pedido = listaPedidos[index];
+
+  if (!pedido) {
+    console.log("No existe ese pedido");
+    return;
+  }
+
+  avisar("Tu pedido de " + pedido.nombre + " ya esta listo");
+}
+
+function cancelarPedido(index, avisar) {
+  let pedido = listaPedidos[index];
+
+  if (!pedido) {
+    console.log("No existe ese pedido");
+    return;
+  }
+
+  totalAcumulado = totalAcumulado - pedido.subtotal;
+  listaPedidos.splice(index, 1);
+
+  avisar("Se cancelo el pedido de " + pedido.nombre);
+}
+
+marcarPedidoListo(0, function (mensaje) {
+  console.log(mensaje);
+});
+
+cancelarPedido(1, function (mensaje) {
+  console.log(mensaje);
+});
+
+mostrarPedidos();
+mostrarTotal();
