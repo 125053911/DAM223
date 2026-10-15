@@ -1,8 +1,9 @@
 /* 1. ZONA IMPORTACIONES */
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image} from 'react-native';
-import {Saludo} from './components/Saludo';
-import {Saludo2} from './components/Saludo2';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { Saludo } from './components/Saludo';
+import { Saludo2 } from './components/Saludo2';
+import { Perfil } from './components/Perfil';
 
 /* 2. ZONA MAIN (componentes ó Screens) */
 export default function App() {
@@ -11,10 +12,11 @@ export default function App() {
     <View style={styles.container}>
 
       <Text>Hola Mundo React Native</Text>
-      <Image  source={require('./assets/wave.png')} />
+      <Image source={require('./assets/wave.png')} />
 
       <Saludo> </Saludo>
       <Saludo2> </Saludo2>
+      <Perfil> </Perfil>
 
       <StatusBar style="auto" />
 
