@@ -16,7 +16,10 @@ export default function App() {
 
       <Saludo> </Saludo>
       <Saludo2> </Saludo2>
-      <Perfil> </Perfil>
+      <Text> ---------------------------------------------- </Text>
+      <Perfil nombre= "Andrea Amairani" carrera= "TIID"  materia= "Molvil" cuatrimestre= "4" />
+      <Text> ---------------------------------------------- </Text>
+      <Perfil nombre= "Alfredo" carrera= "TIID" materia= "Molvil" cuatrimestre= "10" />
 
       <StatusBar style="auto" />
 
