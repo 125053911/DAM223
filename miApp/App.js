@@ -10,16 +10,12 @@ export default function App() {
   return (
 
     <View style={styles.container}>
-
-      <Text>Hola Mundo React Native</Text>
-      <Image source={require('./assets/wave.png')} />
-
-      <Saludo> </Saludo>
-      <Saludo2> </Saludo2>
+    
+      <Perfil nombre= "Andrea Amairani" carrera= "TIID"  materia= "Molvil" cuatrimestre= "4" style= {styles.tarjeta1} />
       <Text> ---------------------------------------------- </Text>
-      <Perfil nombre= "Andrea Amairani" carrera= "TIID"  materia= "Molvil" cuatrimestre= "4" />
+      <Perfil nombre= "Melany" carrera= "TIID" materia= "Molvil" cuatrimestre= "10" style={styles.tarjeta2} />
       <Text> ---------------------------------------------- </Text>
-      <Perfil nombre= "Alfredo" carrera= "TIID" materia= "Molvil" cuatrimestre= "10" />
+      <Perfil nombre= "Aglae" carrera= "TIID" materia= "Molvil" cuatrimestre= "7" style={styles.tarjeta3} />
 
       <StatusBar style="auto" />
 
@@ -32,7 +28,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  tarjeta1: {backgroundColor:'lightblue'},
+  tarjeta2: {backgroundColor:'lightpink'},
+  tarjeta3: {backgroundColor:'gray'},
 });
