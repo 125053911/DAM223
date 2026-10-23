@@ -2,11 +2,11 @@
 import { StyleSheet, View, Text } from 'react-native';
 
 /* 2. ZONA MAIN (componentes ó Screens) */
-export default function TextInputScreen() {
+export default function ActivityScreen() {
   return (
     <View style={styles.container}>
-        <Text> Aqui va la practica 12 </Text>
-        <Text> Equipo de Jesus </Text>
+        <Text> Aqui va la practica 16 </Text>
+        <Text> Equipo de Schoenstatt </Text>
     </View>
   );
 }
