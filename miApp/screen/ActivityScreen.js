@@ -1,96 +1,92 @@
-import React, { useState } from 'react';
-import { View, TextInput, Button, ActivityIndicator, KeyboardAvoidingView, Platform, Switch, Text, StyleSheet } from 'react-native';
+import {useState} from 'react';
+import {View, TextInput, Button, ActivityIndicator, KeyboardAvoidingView, Platform, Switch, 
+  Text, StyleSheet} from 'react-native'
 
 export default function ActivityScreen() {
-  const [cargando, setCargando] = useState(false);
-  const [esGrande, setEsGrande] = useState(false);
-  const [cambiarColor, setCambiarColor] = useState(false);
+  const [cargando,setCargando] = useState(false);
+  const [esGrande,setEsGrande] = useState(false);
+  const [cambiarColor,setCambiarColor] = useState(false);
 
   const handleEnviar = () => {
     setCargando(true);
-    setTimeout(() => setCargando(false), 2000); // Simula el proceso
+    setTimeout(() => setCargando(false), 4000);
   };
-
+  
   return (
-    <KeyboardAvoidingView 
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={0}
-      style={styles.container}
+    <KeyboardAvoidingView
+    behavor={Platform.OS === 'ios' ? 'padding' : 'height'}
+    keyboardVerticalOffset={20}
+    style={styles.container}
     >
-      <TextInput 
-        placeholder="Escribe algo..." 
-        style={styles.input} 
-      />
-
-      <View style={styles.actionContainer}>
-        {cargando ? (
-          <ActivityIndicator 
-            size={esGrande ? "large" : "small"} 
-            color={cambiarColor ? "#00bfff" : "#ff00fb"} 
-          />
+    <TextInput
+    placeholder="Escribe algo..."
+    style={styles.input}
+    />
+    <View style= {styles.actionContainer}>
+      {cargando ? (
+        <ActivityIndicator
+        size={esGrande ? "large" : "small"}
+        color={cambiarColor ? "#00bfff" : "#ff00fb"}
+        />
         ) : (
-          <Button 
-            title="Enviar" 
-            onPress={handleEnviar} 
+          <Button
+          title = "Enviar"
+          onPress={handleEnviar}
           />
         )}
-      </View>
+    </View>
 
-      {/* Cuadro contenedor para los switches */}
-      <View style={styles.switchBox}>
-        {/* Switch 1: Hacer más grande */}
-        <View style={styles.switchRow}>
-          <Text style={styles.switchText}>Hacer más grande</Text>
-          <Switch 
-            value={esGrande} 
-            onValueChange={setEsGrande} 
-          />
-        </View>
-
-        {/* Switch 2: Cambiar color */}
-        <View style={styles.switchRow}>
-          <Text style={styles.switchText}>Cambiar color</Text>
-          <Switch 
-            value={cambiarColor} 
-            onValueChange={setCambiarColor} 
-          />
-        </View>
+    <View style={styles.switchBox}>
+      <View style={styles.switchRow}>
+        <Text style={styles.switchText}> Hacer más grande </Text>
+        <Switch
+        value={esGrande}
+        onValueChange={setEsGrande}
+        />
       </View>
+      <View style={styles.switchRow}>
+        <Text style={styles.switchText}> Cambiar Color </Text>
+        <Switch
+        value={cambiarColor}
+        onValueChange={setCambiarColor}
+        />
+      </View>
+    </View>
     </KeyboardAvoidingView>
   );
 }
 
-const styles = StyleSheet.create({
+const styles =StyleSheet.create({
   container: {
-    flex: 1, 
-    justifyContent: 'flex-end', 
-    padding: 20, 
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 20,
     backgroundColor: '#fff',
   },
   input: {
-    borderWidth: 1, 
-    borderColor: '#ccc', 
-    padding: 10, 
-    borderRadius: 8, 
-    marginBottom: 20, 
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 20,
     backgroundColor: '#fff',
   },
   action: {
-    height: 40, 
-    justifyContent: 'center', 
+    height: 40,
+    justifyContent: 'center',
     marginBottom: 20,
   },
   switchBox: {
-    borderWidth: 1, 
-    borderColor: '#ddd', 
-    borderRadius: 8, 
-    padding: 15, 
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    padding: 15,
     backgroundColor: '#fff',
   },
   switchRow: {
-    flexDirection: 'row', 
-    alignItems: 'center', 
-    justifyContent: 'space-between', 
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 15,
   },
   switchText: {
